@@ -6,6 +6,8 @@
 
 아이콘은 Icon Fonts에서 가져왔으며 코드 출처는 [이 쪽](https://computers.tutsplus.com/tutorials/generate-a-list-of-open-safari-tabs-with-applescript--mac-30564) 입니다.
 
+현재로써는 Safari에서만 작동합니다.
+
 # Safari-tabs
 
 Grab all currently open Safari tabs and put them into your clipboard.
@@ -13,3 +15,5 @@ Grab all currently open Safari tabs and put them into your clipboard.
 For personal use.
 
 Icon from Icon Fonts and code from [here](https://computers.tutsplus.com/tutorials/generate-a-list-of-open-safari-tabs-with-applescript--mac-30564)
+
+Only works in Safari, for now.
