@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>kr.canor.safaritabs</string>
+	<key>category</key>
+	<string>Internet</string>
+	<key>connections</key>
+	<dict>
+		<key>1AAC4F35-4386-4F60-80C9-CA439FB29A91</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B9A70B0E-AAAE-4B82-99C4-0C70D773C095</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>2C34D6C2-F857-4098-A47F-1A9C0579A547</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>B9A70B0E-AAAE-4B82-99C4-0C70D773C095</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>B9A70B0E-AAAE-4B82-99C4-0C70D773C095</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>4FC8551D-2123-4EDD-BE09-60854BD1548D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Canor</string>
+	<key>description</key>
+	<string>make all open Safari tabs to markdown ul</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Safari tabs</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>action</key>
+				<integer>0</integer>
+				<key>argument</key>
+				<integer>0</integer>
+				<key>focusedappvariable</key>
+				<false/>
+				<key>focusedappvariablename</key>
+				<string></string>
+				<key>hotkey</key>
+				<integer>0</integer>
+				<key>hotmod</key>
+				<integer>0</integer>
+				<key>leftcursor</key>
+				<false/>
+				<key>modsmode</key>
+				<integer>0</integer>
+				<key>relatedAppsMode</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.hotkey</string>
+			<key>uid</key>
+			<string>1AAC4F35-4386-4F60-80C9-CA439FB29A91</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>autopaste</key>
+				<false/>
+				<key>clipboardtext</key>
+				<string>{query}</string>
+				<key>transient</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.clipboard</string>
+			<key>uid</key>
+			<string>4FC8551D-2123-4EDD-BE09-60854BD1548D</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>script</key>
+				<string>on run argv
+  tell application "Safari"		--Variables	set windowCount to number of windows	set docText to ""		--Repeat for Every Window	repeat with x from 1 to windowCount		set tabCount to number of tabs in window x				--Repeat for Every Tab in Current Window		repeat with y from 1 to tabCount						--Get Tab Name &amp; URL			set tabName to name of tab y of window x			set tabURL to URL of tab y of window x						set docText to docText &amp; "- [" &amp; tabName &amp; "](" &amp; tabURL &amp; ")" &amp; linefeed as string		end repeat			end repeatend tell
+  return docText
+end run</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>6</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>B9A70B0E-AAAE-4B82-99C4-0C70D773C095</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>sft</string>
+				<key>subtext</key>
+				<string>grab all open Safari tabs into markdown list</string>
+				<key>text</key>
+				<string>Safari tabs</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>2C34D6C2-F857-4098-A47F-1A9C0579A547</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>icon from Icon Fonts http://www.onlinewebfonts.com/icon
+code from: https://computers.tutsplus.com/tutorials/generate-a-list-of-open-safari-tabs-with-applescript--mac-30564</string>
+	<key>uidata</key>
+	<dict>
+		<key>1AAC4F35-4386-4F60-80C9-CA439FB29A91</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>210</integer>
+		</dict>
+		<key>2C34D6C2-F857-4098-A47F-1A9C0579A547</key>
+		<dict>
+			<key>xpos</key>
+			<integer>60</integer>
+			<key>ypos</key>
+			<integer>360</integer>
+		</dict>
+		<key>4FC8551D-2123-4EDD-BE09-60854BD1548D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>480</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
+		<key>B9A70B0E-AAAE-4B82-99C4-0C70D773C095</key>
+		<dict>
+			<key>xpos</key>
+			<integer>290</integer>
+			<key>ypos</key>
+			<integer>290</integer>
+		</dict>
+	</dict>
+	<key>version</key>
+	<string>0.0.1</string>
+	<key>webaddress</key>
+	<string>https://canor.kr</string>
+</dict>
+</plist>
